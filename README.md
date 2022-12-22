@@ -3,6 +3,9 @@
 ```
 mkdir airbyte && cd airbyte
 wget https://raw.githubusercontent.com/airbytehq/airbyte/master/{.env,docker-compose.yaml}
+mv docker-compose.yaml airbyte.yml
+set -a; . ./.env; set +a
+docker stack deploy -c airbyte.yml airbyte
 docker-compose up -d
 ```
 
